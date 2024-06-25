@@ -1,4 +1,4 @@
-{
-"IdentityCardType" "xsi:type=\"CD\" code=\"1\" codeSystem=\"1.2.643.5.1.13.13.99.2.48\" codeSystemVersion=\"4.2\" codeSystemName=\"Документы, удостоверяющие личность\" displayName=\"Паспорт гражданина РФ\"",
-"InsurancePolicyType": "xsi:type=\"CD\" code=\"2\" codeSystem=\"1.2.643.5.1.13.13.11.1035\" codeSystemVersion=\"1.3\" codeSystemName=\"Виды полиса обязательного медицинского страхования\" displayName=\"Полис ОМС единого образца, бессрочный\""
+п»ї{
+"IdentityCardType" "xsi:type=\"CD\" code=\"1\" codeSystem=\"1.2.643.5.1.13.13.99.2.48\" codeSystemVersion=\"4.2\" codeSystemName=\"Р”РѕРєСѓРјРµРЅС‚С‹, СѓРґРѕСЃС‚РѕРІРµСЂСЏСЋС‰РёРµ Р»РёС‡РЅРѕСЃС‚СЊ\" displayName=\"РџР°СЃРїРѕСЂС‚ РіСЂР°Р¶РґР°РЅРёРЅР° Р Р¤\"",
+"InsurancePolicyType": "xsi:type=\"CD\" code=\"2\" codeSystem=\"1.2.643.5.1.13.13.11.1035\" codeSystemVersion=\"1.3\" codeSystemName=\"Р’РёРґС‹ РїРѕР»РёСЃР° РѕР±СЏР·Р°С‚РµР»СЊРЅРѕРіРѕ РјРµРґРёС†РёРЅСЃРєРѕРіРѕ СЃС‚СЂР°С…РѕРІР°РЅРёСЏ\" displayName=\"РџРѕР»РёСЃ РћРњРЎ РµРґРёРЅРѕРіРѕ РѕР±СЂР°Р·С†Р°, Р±РµСЃСЃСЂРѕС‡РЅС‹Р№\""
 }

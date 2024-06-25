@@ -1,11 +1,11 @@
-{
+п»ї{
 	"PatientId":"585233",
 	"SnilsId":"123-456-789 10",
 	"IdentityDoc":
 	{
 		"IdentitySeries":"1234",
 		"IdentityNumber":"567890",
-		"IdentityIssueOrgName":"ОВД 'Хорошевское' ОУФМС России по гор. Москве.",
+		"IdentityIssueOrgName":"РћР’Р” 'РҐРѕСЂРѕС€РµРІСЃРєРѕРµ' РћРЈР¤РњРЎ Р РѕСЃСЃРёРё РїРѕ РіРѕСЂ. РњРѕСЃРєРІРµ.",
 		"IdentityIssueOrgCode":"123-456",
 		"IdentityIssueDate":"20050218"
 	},

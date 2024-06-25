@@ -1,12 +1,12 @@
-{
+п»ї{
 	"title":"identity:InsurancePolicy",
-	"comment":"R [1..1] Полис ОМС",
+	"comment":"R [1..1] РџРѕР»РёСЃ РћРњРЎ",
 	"attributes":{},
 	"value":null,
 	"child":[
 		{
 			"title":"identity:InsurancePolicy",
-			"comment":"R [1..1] Тип полиса ОМС",
+			"comment":"R [1..1] РўРёРї РїРѕР»РёСЃР° РћРњРЎ",
 			"attributes":{},
 			"value":null,
 			"child":[]
