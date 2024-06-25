@@ -1,8 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+pyproject.toml
+poetry.lock
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
+
 .idea
 __pycache__/
 *.py[cod]

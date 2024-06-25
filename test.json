@@ -1,4 +1,4 @@
-﻿{
+{
 	"title":"identity:InsurancePolicy",
 	"comment":"R [1..1] Полис ОМС",
 	"attributes":{},
