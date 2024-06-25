@@ -1,0 +1,15 @@
+{
+	"title":"identity:InsurancePolicy",
+	"comment":"R [1..1] Полис ОМС",
+	"attributes":{},
+	"value":null,
+	"child":[
+		{
+			"title":"identity:InsurancePolicy",
+			"comment":"R [1..1] Тип полиса ОМС",
+			"attributes":{},
+			"value":null,
+			"child":[]
+		}
+	]
+}	

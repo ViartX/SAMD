@@ -1,0 +1,17 @@
+{
+	"PatientId":"585233",
+	"SnilsId":"123-456-789 10",
+	"IdentityDoc":
+	{
+		"IdentitySeries":"1234",
+		"IdentityNumber":"567890",
+		"IdentityIssueOrgName":"ОВД 'Хорошевское' ОУФМС России по гор. Москве.",
+		"IdentityIssueOrgCode":"123-456",
+		"IdentityIssueDate":"20050218"
+	},
+	"InsurancePolicy":
+	{
+		"Series":"nullFlavour",
+		"Number":"1234567890"
+	}
+}		
