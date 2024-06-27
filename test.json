@@ -1,15 +1,87 @@
 {
-	"title":"identity:InsurancePolicy",
-	"comment":"R [1..1] Полис ОМС",
+	"id":"patientRole",
+	"title":"patientRole",
+	"comment":"R [1..1] ПАЦИЕНТ (роль)",
 	"attributes":{},
-	"value":null,
+	"value":"null",
 	"child":[
 		{
+			"id":"idPatient",
+			"title":"id",
+			"comment":"R [1..1] Уникальный идентификатор пациента в МИС",
+			"attributes":{
+				"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.10",
+				"extension":"*"	
+			},
+			"value":"null",
+			"child":[]	
+		},
+		{
+			"id":"idSnils",
+			"title":"id",
+			"comment":"R [1..1] СНИЛС пациента",
+			"attributes":{
+				"root":"1.2.643.100.3",
+				"extension":"*"	
+			},
+			"value":"null",
+			"child":[]	
+		},
+		{
+			"id":"identity:IdentityDoc",
+			"title":"identity:IdentityDoc",
+			"comment":"[1..1] Документ, удостоверяющий личность пациента, серия, номер, кем выдан.",
+			"attributes":{
+				"nullFlavor":"NA"				
+			},
+			"value":"null",
+			"child":[]	
+		},		
+		{
+			"id":"identity:InsurancePolicy",
 			"title":"identity:InsurancePolicy",
-			"comment":"R [1..1] Тип полиса ОМС",
+			"comment":"R [1..1] Полис ОМС",
 			"attributes":{},
-			"value":null,
-			"child":[]
+			"value":"null",
+			"child":[
+				{
+					"id":"identity:InsurancePolicyType",
+					"title":"identity:InsurancePolicyType",
+					"comment":"R [1..1] Тип полиса ОМС",
+					"attributes":{
+						"xsi:type":"CD",
+						"code":"2",
+						"codeSystem":"1.2.643.5.1.13.13.11.1035",
+						"codeSystemVersion":"1.3",
+						"codeSystemName":"Виды полиса обязательного медицинского страхования",
+						"displayName":"Полис ОМС единого образца, бессрочный"			
+					},
+					"value":"null",
+					"child":[]
+				},
+				{
+					"id":"identity:Series",
+					"title":"identity:Series",
+					"comment":"[0..1] Серия полиса ОМС",
+					"attributes":{
+						"nullFlavor":"NA"	
+					},
+					"value":"null",
+					"child":[]		
+				},
+				{
+					"id":"identity:Number",
+					"title":"identity:Number",
+					"comment":"R [1..1] Номер полиса ОМС",
+					"attributes":{
+						"xsi:type":"ST"	
+					},
+					"value":"*",
+					"child":[]		
+				}
+			]
 		}
-	]
+		
+	]	
+		
 }	
