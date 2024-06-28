@@ -7,9 +7,7 @@ import json_parcer as jpars
 filenameP = 'permanent.json'
 filenameV = 'variable.json'
 filenameXML = 'result.xml'
-icomment = itertools.count(1)
-itest:int = 0
-
+tree = None
 
 # поиск entity.value в jsonv по entity.id с перебором вложенных сущностей
 def get_entity_value_by_id(jsonV: xe.Entity, entityId) -> str:
@@ -40,17 +38,21 @@ def get_attribute_value_by_id(jsonV: xe.Entity, entityId, attributeName) -> str:
 
 
 def entity_to_xml(source_xml_tag, jsonP: xe.Entity, jsonV: xe.Entity):
-    global itest
+    global tree
     comment = ET.Comment(jsonP.comment)
-    itest = itest + 1
-    source_xml_tag.insert(itest, comment)
-    print(f'comment {itest} {jsonP.comment}')
+    if jsonP.comment != "":
+        source_xml_tag.append(comment)
 
     for attrname in jsonP.attributes:
         if jsonP.attributes[attrname] == "*":
             jsonP.attributes[attrname] = get_attribute_value_by_id(jsonV, jsonP.id, attrname)
 
-    result_xml_tag = ET.SubElement(source_xml_tag, jsonP.title, jsonP.attributes)
+    if source_xml_tag is None:
+        result_xml_tag = ET.Element(jsonP.title, jsonP.attributes)
+        tree = ET.ElementTree(element=result_xml_tag)
+    else:
+        result_xml_tag = ET.SubElement(source_xml_tag, jsonP.title, jsonP.attributes)
+
     text = jsonP.value
     if text == "*":
         text = get_entity_value_by_id(jsonV, jsonP.id)
@@ -59,6 +61,7 @@ def entity_to_xml(source_xml_tag, jsonP: xe.Entity, jsonV: xe.Entity):
 
     for entity in jsonP.child:
         entity_to_xml(result_xml_tag, entity, jsonV)
+
 
     return result_xml_tag
 
@@ -91,10 +94,10 @@ def build_xml(filenameP, filenameV, filenameXML):
     jsonP = xe.read_json_test(filenameP)
     jsonV = xe.read_json_test(filenameV)
 
-    ClinicalDocument = ET.Element(jsonP.title)
-    tree = ET.ElementTree(element=ClinicalDocument)
+    #ClinicalDocument = ET.Element(jsonP.title)
+    #tree = ET.ElementTree(element=ClinicalDocument)
 
-    entity_to_xml(ClinicalDocument, jsonP, jsonV)
+    entity_to_xml(None, jsonP, jsonV)
     #fill_patient_role(ClinicalDocument, jsonP, jsonV)
 
     ET.indent(tree, space="\t", level=0)

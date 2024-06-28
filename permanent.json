@@ -1,87 +1,417 @@
-{
-	"id":"patientRole",
-	"title":"patientRole",
-	"comment":"R [1..1] ПАЦИЕНТ (роль)",
-	"attributes":{},
+{		
+	"id":"ClinicalDocument",
+	"title":"ClinicalDocument",
+	"comment":"",
+	"attributes":{
+		"xmlns":"urn:hl7-org:v3",
+		"xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance",
+		"xmlns:fias":"urn:hl7-ru:fias",
+		"xmlns:identity":"urn:hl7-ru:identity",
+		"xmlns:address":"urn:hl7-ru:address",
+		"xmlns:medService":"urn:hl7-ru:medService"
+	},
 	"value":"null",
 	"child":[
 		{
-			"id":"idPatient",
-			"title":"id",
-			"comment":"R [1..1] Уникальный идентификатор пациента в МИС",
+			"id":"CD-realmCode",
+			"title":"realmCode",
+			"comment":"R [1..1] Область применения документа (Страна)",
 			"attributes":{
-				"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.10",
-				"extension":"*"	
+				"code":"RU"
 			},
 			"value":"null",
-			"child":[]	
+			"child":[]
 		},
 		{
-			"id":"idSnils",
-			"title":"id",
-			"comment":"R [1..1] СНИЛС пациента",
+			"id":"CD-typeId",
+			"title":"typeId",
+			"comment":"R [1..1] Указатель на использование CDA R2",
 			"attributes":{
-				"root":"1.2.643.100.3",
-				"extension":"*"	
+				"root":"2.16.840.1.113883.1.3",
+				"extension":"POCD_MT000040"
 			},
 			"value":"null",
-			"child":[]	
+			"child":[]
+		},	
+		{
+			"id":"CD-templateId",
+			"title":"templateId",
+			"comment":"R [1..1] Идентификатор документа \"Руководство по реализации CDA (Release 2) уровень 3 Протокол прижизненного патологоанатомического исследования Редакция 2\"",
+			"attributes":{
+				"root":"1.2.643.5.1.13.13.14.12.9.2"
+			},
+			"value":"null",
+			"child":[]
 		},
 		{
-			"id":"identity:IdentityDoc",
-			"title":"identity:IdentityDoc",
-			"comment":"[1..1] Документ, удостоверяющий личность пациента, серия, номер, кем выдан.",
+			"id":"CD-documentId",
+			"title":"id",
+			"comment":"R [1..1] Уникальный идентификатор документа",
 			"attributes":{
-				"nullFlavor":"NA"				
+				"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.51",
+				"extension":"*"
 			},
 			"value":"null",
-			"child":[]	
-		},		
+			"child":[]
+		},
 		{
-			"id":"identity:InsurancePolicy",
-			"title":"identity:InsurancePolicy",
-			"comment":"R [1..1] Полис ОМС",
+			"id":"CD-documentType",
+			"title":"code",
+			"comment":"R [1..1] Тип документа",
+			"attributes":{
+				"code":"12",
+				"codeSystem":"1.2.643.5.1.13.13.11.1522",
+				"codeSystemVersion":"4.13",
+				"codeSystemName":"Виды медицинской документации",
+				"displayName":"Протокол прижизненного патологоанатомического исследования"
+			},
+			"value":"null",
+			"child":[]
+		},
+		{
+			"id":"CD-documentTitle",
+			"title":"title",
+			"comment":"R [1..1] Заголовок документа",
+			"attributes":{},
+			"value":"Протокол прижизненного патологоанатомического исследования",
+			"child":[]
+		},
+		{
+			"id":"CD-effectiveTime",
+			"title":"effectiveTime",
+			"comment":"R [1..1] Дата создания документа",
+			"attributes":{
+				"value":"*"
+			},
+			"value":"",
+			"child":[]
+		},
+		{
+			"id":"CD-confidentialityCode",
+			"title":"confidentialityCode",
+			"comment":"R [1..1] Уровень конфиденциальности документа",
+			"attributes":{
+				"code":"N",
+				"codeSystem":"1.2.643.5.1.13.13.99.2.285",
+				"codeSystemVersion":"1.1",
+				"codeSystemName":"Уровень конфиденциальности медицинского документа",
+				"displayName":"обычный"
+			},
+			"value":"null",
+			"child":[]
+		},
+		{
+			"id":"CD-languageCode",
+			"title":"languageCode",
+			"comment":"R [1..1] Язык документа",
+			"attributes":{
+				"code":"ru-RU"
+			},
+			"value":"",
+			"child":[]
+		},
+		{
+			"id":"CD-setId",
+			"title":"setId",
+			"comment":"R [1..1] Уникальный идентификатор набора версий документа",
+			"attributes":{
+				"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.50",
+				"extension":"*"
+			},
+			"value":"null",
+			"child":[]
+		},
+		{
+			"id":"CD-versionNumber",
+			"title":"versionNumber",
+			"comment":"R [1..1] Номер версии данного документа",
+			"attributes":{
+				"value":"*"
+			},
+			"value":"null",
+			"child":[]
+		},
+		{
+			"id":"patient:recordTarget",
+			"title":"recordTarget",
+			"comment":"R [1..1] ДАННЫЕ О ПАЦИЕНТЕ",
 			"attributes":{},
 			"value":"null",
 			"child":[
 				{
-					"id":"identity:InsurancePolicyType",
-					"title":"identity:InsurancePolicyType",
-					"comment":"R [1..1] Тип полиса ОМС",
-					"attributes":{
-						"xsi:type":"CD",
-						"code":"2",
-						"codeSystem":"1.2.643.5.1.13.13.11.1035",
-						"codeSystemVersion":"1.3",
-						"codeSystemName":"Виды полиса обязательного медицинского страхования",
-						"displayName":"Полис ОМС единого образца, бессрочный"			
-					},
+					"id":"patientRole",
+					"title":"patientRole",
+					"comment":"R [1..1] ПАЦИЕНТ (роль)",
+					"attributes":{},
 					"value":"null",
-					"child":[]
-				},
-				{
-					"id":"identity:Series",
-					"title":"identity:Series",
-					"comment":"[0..1] Серия полиса ОМС",
-					"attributes":{
-						"nullFlavor":"NA"	
-					},
-					"value":"null",
-					"child":[]		
-				},
-				{
-					"id":"identity:Number",
-					"title":"identity:Number",
-					"comment":"R [1..1] Номер полиса ОМС",
-					"attributes":{
-						"xsi:type":"ST"	
-					},
-					"value":"*",
-					"child":[]		
+					"child":[
+						{
+							"id":"idPatient",
+							"title":"id",
+							"comment":"R [1..1] Уникальный идентификатор пациента в МИС",
+							"attributes":{
+								"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.10",
+								"extension":"*"	
+							},
+							"value":"null",
+							"child":[]	
+						},
+						{
+							"id":"idSnils",
+							"title":"id",
+							"comment":"R [1..1] СНИЛС пациента",
+							"attributes":{
+								"root":"1.2.643.100.3",
+								"extension":"*"	
+							},
+							"value":"null",
+							"child":[]	
+						},
+						{
+							"id":"identity:IdentityDoc",
+							"title":"identity:IdentityDoc",
+							"comment":"[1..1] Документ, удостоверяющий личность пациента, серия, номер, кем выдан.",
+							"attributes":{
+								"nullFlavor":"NA"				
+							},
+							"value":"null",
+							"child":[]	
+						},		
+						{
+							"id":"identity:InsurancePolicy",
+							"title":"identity:InsurancePolicy",
+							"comment":"R [1..1] Полис ОМС",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"identity:InsurancePolicyType",
+									"title":"identity:InsurancePolicyType",
+									"comment":"R [1..1] Тип полиса ОМС",
+									"attributes":{
+										"xsi:type":"CD",
+										"code":"2",
+										"codeSystem":"1.2.643.5.1.13.13.11.1035",
+										"codeSystemVersion":"1.3",
+										"codeSystemName":"Виды полиса обязательного медицинского страхования",
+										"displayName":"Полис ОМС единого образца, бессрочный"			
+									},
+									"value":"null",
+									"child":[]
+								},
+								{
+									"id":"identity:Number",
+									"title":"identity:Number",
+									"comment":"R [1..1] Номер полиса ОМС",
+									"attributes":{
+										"xsi:type":"ST"	
+									},
+									"value":"*",
+									"child":[]		
+								}
+							]
+						},
+						{
+							"id":"patientAddress",
+							"title":"addr",
+							"comment":"R [1..1] Адрес пациента",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"patient:AddressType",
+									"title":"address:Type",
+									"comment":"R [1..1] Тип адреса пациента",
+									"attributes":{
+										"xsi:type":"CD",
+										"code":"1",
+										"codeSystem":"1.2.643.5.1.13.13.11.1504",
+										"codeSystemVersion":"1.3",
+										"codeSystemName":"Тип адреса пациента",
+										"displayName":"Адрес по месту жительства (постоянной регистрации)"			
+									},
+									"value":"null",
+									"child":[]
+								},
+								{
+									"id":"patient:AddressText",
+									"title":"streetAddressLine",
+									"comment":"R [1..1] Адрес текстом",
+									"attributes":{},
+									"value":"*",
+									"child":[]		
+								},
+								{
+									"id":"patient:AddressStateCode",
+									"title":"address:stateCode",
+									"comment":"R [1..1] Кодирование субъекта РФ (Код региона в ФНС по справочнику \"Субъекты Российской Федерации\" (OID:1.2.643.5.1.13.13.99.2.206))",
+									"attributes":{
+										"xsi:type":"CD",
+										"code":"*",
+										"codeSystem":"1.2.643.5.1.13.13.99.2.206",
+										"codeSystemVersion":"6.2",
+										"codeSystemName":"Субъекты Российской Федерации",
+										"displayName":"*"
+									},
+									"value":"",
+									"child":[]		
+								},
+								{
+									"id":"patient:AddressResidentCode",
+									"title":"address:residentCode",
+									"comment":"R [1..1] Признак жителя города или села (Код по справочнику \"Вид места жительства\" (OID:1.2.643.5.1.13.13.11.1042)",
+									"attributes":{
+										"xsi:type":"CD",
+										"code":"1",
+										"codeSystem":"1.2.643.5.1.13.13.11.1042",
+										"codeSystemVersion":"2.1",
+										"codeSystemName":"Вид места жительства",
+										"displayName":"Город"
+									},					
+									"value":"",
+									"child":[]		
+								},
+								{
+									"id":"patient:FiasAddress",
+									"title":"fias:Address",
+									"comment":"[1..1] Кодирование адреса по ФИАС",
+									"attributes":{
+										"nullFlavor":"NA"	
+									},
+									"value":"null",
+									"child":[]	
+								}
+							]
+						},
+						{
+							"id":"patientPhoneNumber",
+							"title":"telecom",
+							"comment":"[1..1] Телефон пациента",
+							"attributes":{
+								"nullFlavor":"NA"
+							},
+							"value":"null",
+							"child":[]
+						},		
+						{
+							"id":"patient:Data",
+							"title":"patient",
+							"comment":"R [1..1] ПАЦИЕНТ (человек)",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"patient:Name",
+									"title":"name",
+									"comment":"R [1..1] ФИО пациента",
+									"attributes":{},
+									"value":"none",
+									"child":[
+										{
+											"id":"patient:FamilyName",
+											"title":"family",
+											"comment":"R [1..1] Фамилия",
+											"attributes":{},
+											"value":"*",
+											"child":[]
+										},
+										{
+											"id":"patient:GivenName",
+											"title":"given",
+											"comment":"R [1..1] Имя",
+											"attributes":{},
+											"value":"*",
+											"child":[]
+										},
+										{
+											"id":"patient:Patronymic",
+											"title":"identity:Patronymic",
+											"comment":"[0..1] Отчество",
+											"attributes":{
+												"xsi:type":"ST"
+											},
+											"value":"*",
+											"child":[]
+										}
+									]	
+								},
+								{
+									"id":"patient:administrativeGenderCode",
+									"title":"administrativeGenderCode",
+									"comment":"R [1..1] Пол пациента",
+									"attributes":{
+										"code":"*",
+										"codeSystem":"1.2.643.5.1.13.13.11.1040",
+										"codeSystemVersion":"2.1",
+										"codeSystemName":"Пол пациента",
+										"displayName":"*"
+									},
+									"value":"none",
+									"child":[]
+								},	
+								{
+									"id":"patient:birthTime",
+									"title":"birthTime",
+									"comment":"R [1..1] Дата рождения пациента",
+									"attributes":{
+										"value":"*"
+									},
+									"value":"none",
+									"child":[]
+								}
+							]
+						},
+						{
+							"id":"providerOrganization",
+							"title":"providerOrganization",
+							"comment":"R [1..1] Организация (ЛПУ или его филиал), оказавшая медицинскую помощь",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{									
+									"id":"providerOrganization:id",
+									"title":"id",
+									"comment":"R [1..1] Уникальный идентификатор организации по справочнику \"Реестр медицинских организаций Российской Федерации\"",
+									"attributes":{
+										"root":"*"
+									},
+									"value":"none",
+									"child":[]
+								},
+								{									
+									"id":"providerOrganization:identity:Props",
+									"title":"identity:Props",
+									"comment":"[1..1] Реквизиты организации",
+									"attributes":{
+										"nullFlavor":"NA"
+									},
+									"value":"none",
+									"child":[]
+								},
+								{									
+									"id":"providerOrganization:name",
+									"title":"name",
+									"comment":"R [1..1] Наименование организации",
+									"attributes":{},
+									"value":"*",
+									"child":[]
+								},
+								{
+									"id":"providerOrganization:identity:addr",
+									"title":"addr",
+									"comment":"[1..1] Адрес организации",
+									"attributes":{
+										"nullFlavor":"NA"
+									},
+									"value":"none",
+									"child":[]			
+								}				
+							]
+						}
+					]	
+						
 				}
-			]
+			]		
 		}
-		
-	]	
-		
-}	
+	]
+}		
