@@ -21,6 +21,18 @@ class Entity:
         return result
 
 
+# датакласс для хранения данных, передаваемых из Морфиса в xml-генератор
+@dataclass
+class EntityV:
+    id: str              # уникальный идентификатор тега
+    attributes: dict = field(default=dict)  # аттрибуты тега
+    value: str | None = None  # текст тега
+
+@dataclass
+class ListOfEntityV:
+    variables: list[EntityV] = field(default=list)
+
+
 def read_json_test(filename: str) -> Entity:
     with open(filename, encoding="utf-8") as f:
         json_data = json.load(f)
@@ -31,5 +43,13 @@ def read_json_test(filename: str) -> Entity:
     return c1
 
 
-c1 = read_json_test('variable.json')
-print(c1.to_string())
+def read_json_entity_variable(filename: str) -> ListOfEntityV:
+    with open(filename, encoding="utf-8") as f:
+        json_data = json.load(f)
+    c1 = from_dict(data_class=ListOfEntityV, data=json_data)
+    return c1
+
+
+#c1 = read_json_test('variable_short.json')
+c1 = read_json_entity_variable('variable_short.json')
+print(c1)

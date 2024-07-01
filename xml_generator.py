@@ -5,36 +5,67 @@ from pathlib import Path
 import json_parcer as jpars
 
 filenameP = 'permanent.json'
-filenameV = 'variable.json'
+filenameV = 'variable_short.json'
 filenameXML = 'result.xml'
 tree = None
 
 # поиск entity.value в jsonv по entity.id с перебором вложенных сущностей
-def get_entity_value_by_id(jsonV: xe.Entity, entityId) -> str:
-
-    if jsonV.id == entityId:
-        return jsonV.value
-    else:
-        for child in jsonV.child:
-            value = get_entity_value_by_id(child, entityId)
-            if value != "":
-                return value
-    return ""
+# def get_entity_value_by_id(jsonV: xe.Entity, entityId) -> str:
+#
+#     if jsonV.id == entityId:
+#         return jsonV.value
+#     else:
+#         for child in jsonV.child:
+#             value = get_entity_value_by_id(child, entityId)
+#             if value != "":
+#                 return value
+#     return ""
+def get_entity_value_by_id(jsonV: xe.ListOfEntityV, entityId, index=1) -> str:
+    counter = 1
+    result = "NOT FOUND"
+    for entity in jsonV.variables:
+        if entity.id == entityId:
+            if counter >= index:
+                return entity.value
+            else:
+                counter += 1
+    return result
 
 
 # поиск entity.attribute в jsonv по entity.id и именем аттрибута с перебором вложенных сущностей
-def get_attribute_value_by_id(jsonV: xe.Entity, entityId, attributeName) -> str:
-    #print(f'<<<{entityId}  {attributeName}')
-    if jsonV.id == entityId:
-        for attrname in jsonV.attributes:
-            if attrname == attributeName:
-                return jsonV.attributes[attrname]
-    else:
-        for child in jsonV.child:
-            value = get_attribute_value_by_id(child, entityId, attributeName)
-            if value != "":
-                return value
-    return ""
+# def get_attribute_value_by_id(jsonV: xe.Entity, entityId, attributeName) -> str:
+#     #print(f'<<<{entityId}  {attributeName}')
+#     if jsonV.id == entityId:
+#         for attrname in jsonV.attributes:
+#             if attrname == attributeName:
+#                 return jsonV.attributes[attrname]
+#     else:
+#         for child in jsonV.child:
+#             value = get_attribute_value_by_id(child, entityId, attributeName)
+#             if value != "":
+#                 return value
+#     return ""
+def get_attribute_value_by_id(jsonV: xe.Entity, entityId, attributeName, index=1) -> str:
+    counter = 1
+    result = "NOT FOUND"
+    for entity in jsonV.variables:
+        if entity.id == entityId:
+            if counter >= index:
+                for attrname in entity.attributes:
+                    if attrname == attributeName:
+                        return entity.attributes[attrname]
+            else:
+                counter += 1
+    return result
+
+
+# поиск количества элементов в структуре json variable с одинаковым entity id
+def count_entity_with_id(jsonV: xe.ListOfEntityV, entityId) ->int:
+    counter = 0
+    for entity in jsonV.variables:
+        if entity.id == entityId:
+            counter += 1
+    return counter
 
 
 def entity_to_xml(source_xml_tag, jsonP: xe.Entity, jsonV: xe.Entity):
@@ -92,7 +123,8 @@ def fill_patient_role(ClinicalDocument, jsonP: xe.Entity, jsonV: xe.Entity):
 
 def build_xml(filenameP, filenameV, filenameXML):
     jsonP = xe.read_json_test(filenameP)
-    jsonV = xe.read_json_test(filenameV)
+    #jsonV = xe.read_json_test(filenameV)
+    jsonV = xe.read_json_entity_variable(filenameV)
 
     #ClinicalDocument = ET.Element(jsonP.title)
     #tree = ET.ElementTree(element=ClinicalDocument)
@@ -107,6 +139,5 @@ def build_xml(filenameP, filenameV, filenameXML):
     #    print(child.title)
 
 
-
-
 build_xml(filenameP,filenameV,filenameXML)
+

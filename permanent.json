@@ -132,21 +132,21 @@
 			"child":[]
 		},
 		{
-			"id":"patient:recordTarget",
+			"id":"CD-patient:recordTarget",
 			"title":"recordTarget",
 			"comment":"R [1..1] ДАННЫЕ О ПАЦИЕНТЕ",
 			"attributes":{},
 			"value":"null",
 			"child":[
 				{
-					"id":"patientRole",
+					"id":"CD-patient:recordTarget-patientRole",
 					"title":"patientRole",
 					"comment":"R [1..1] ПАЦИЕНТ (роль)",
 					"attributes":{},
 					"value":"null",
 					"child":[
 						{
-							"id":"idPatient",
+							"id":"CD-patient:recordTarget-patientRole-idPatient",
 							"title":"id",
 							"comment":"R [1..1] Уникальный идентификатор пациента в МИС",
 							"attributes":{
@@ -157,7 +157,7 @@
 							"child":[]	
 						},
 						{
-							"id":"idSnils",
+							"id":"CD-patient:recordTarget-patientRole-idSnils",
 							"title":"id",
 							"comment":"R [1..1] СНИЛС пациента",
 							"attributes":{
@@ -168,7 +168,7 @@
 							"child":[]	
 						},
 						{
-							"id":"identity:IdentityDoc",
+							"id":"CD-patient:recordTarget-patientRole-identity:IdentityDoc",
 							"title":"identity:IdentityDoc",
 							"comment":"[1..1] Документ, удостоверяющий личность пациента, серия, номер, кем выдан.",
 							"attributes":{
@@ -178,14 +178,14 @@
 							"child":[]	
 						},		
 						{
-							"id":"identity:InsurancePolicy",
+							"id":"CD-patient:recordTarget-patientRole-identity:InsurancePolicy",
 							"title":"identity:InsurancePolicy",
 							"comment":"R [1..1] Полис ОМС",
 							"attributes":{},
 							"value":"null",
 							"child":[
 								{
-									"id":"identity:InsurancePolicyType",
+									"id":"CD-patient:recordTarget-patientRole-identity:InsurancePolicy-identity:InsurancePolicyType",
 									"title":"identity:InsurancePolicyType",
 									"comment":"R [1..1] Тип полиса ОМС",
 									"attributes":{
@@ -200,7 +200,7 @@
 									"child":[]
 								},
 								{
-									"id":"identity:Number",
+									"id":"CD-patient:recordTarget-patientRole-identity:InsurancePolicy-identity:Number",
 									"title":"identity:Number",
 									"comment":"R [1..1] Номер полиса ОМС",
 									"attributes":{
@@ -212,14 +212,14 @@
 							]
 						},
 						{
-							"id":"patientAddress",
+							"id":"CD-patient:recordTarget-patientRole-patientAddress",
 							"title":"addr",
 							"comment":"R [1..1] Адрес пациента",
 							"attributes":{},
 							"value":"null",
 							"child":[
 								{
-									"id":"patient:AddressType",
+									"id":"CD-patient:recordTarget-patientRole-patientAddress-patient:AddressType",
 									"title":"address:Type",
 									"comment":"R [1..1] Тип адреса пациента",
 									"attributes":{
@@ -234,7 +234,7 @@
 									"child":[]
 								},
 								{
-									"id":"patient:AddressText",
+									"id":"CD-patient:recordTarget-patientRole-patientAddress-patient:AddressText",
 									"title":"streetAddressLine",
 									"comment":"R [1..1] Адрес текстом",
 									"attributes":{},
@@ -242,7 +242,7 @@
 									"child":[]		
 								},
 								{
-									"id":"patient:AddressStateCode",
+									"id":"CD-patient:recordTarget-patientRole-patientAddress-patient:AddressStateCode",
 									"title":"address:stateCode",
 									"comment":"R [1..1] Кодирование субъекта РФ (Код региона в ФНС по справочнику \"Субъекты Российской Федерации\" (OID:1.2.643.5.1.13.13.99.2.206))",
 									"attributes":{
@@ -257,7 +257,7 @@
 									"child":[]		
 								},
 								{
-									"id":"patient:AddressResidentCode",
+									"id":"CD-patient:recordTarget-patientRole-patientAddress-patient:AddressResidentCode",
 									"title":"address:residentCode",
 									"comment":"R [1..1] Признак жителя города или села (Код по справочнику \"Вид места жительства\" (OID:1.2.643.5.1.13.13.11.1042)",
 									"attributes":{
@@ -272,7 +272,7 @@
 									"child":[]		
 								},
 								{
-									"id":"patient:FiasAddress",
+									"id":"CD-patient:recordTarget-patientRole-patientAddress-patient:FiasAddress",
 									"title":"fias:Address",
 									"comment":"[1..1] Кодирование адреса по ФИАС",
 									"attributes":{
@@ -284,7 +284,7 @@
 							]
 						},
 						{
-							"id":"patientPhoneNumber",
+							"id":"CD-patient:recordTarget-patientRole-patientPhoneNumber",
 							"title":"telecom",
 							"comment":"[1..1] Телефон пациента",
 							"attributes":{
@@ -294,21 +294,21 @@
 							"child":[]
 						},		
 						{
-							"id":"patient:Data",
+							"id":"CD-patient:recordTarget-patientRole-patient:Data",
 							"title":"patient",
 							"comment":"R [1..1] ПАЦИЕНТ (человек)",
 							"attributes":{},
 							"value":"null",
 							"child":[
 								{
-									"id":"patient:Name",
+									"id":"CD-patient:recordTarget-patientRole-patient:Data-patient:Name",
 									"title":"name",
 									"comment":"R [1..1] ФИО пациента",
 									"attributes":{},
 									"value":"none",
 									"child":[
 										{
-											"id":"patient:FamilyName",
+											"id":"CD-patient:recordTarget-patientRole-patient:Data-patient:Name-familyName",
 											"title":"family",
 											"comment":"R [1..1] Фамилия",
 											"attributes":{},
@@ -316,7 +316,7 @@
 											"child":[]
 										},
 										{
-											"id":"patient:GivenName",
+											"id":"CD-patient:recordTarget-patientRole-patient:Data-patient:Name-givenName",
 											"title":"given",
 											"comment":"R [1..1] Имя",
 											"attributes":{},
@@ -324,7 +324,7 @@
 											"child":[]
 										},
 										{
-											"id":"patient:Patronymic",
+											"id":"CD-patient:recordTarget-patientRole-patient:Data-patient:Name-patronymic",
 											"title":"identity:Patronymic",
 											"comment":"[0..1] Отчество",
 											"attributes":{
@@ -336,7 +336,7 @@
 									]	
 								},
 								{
-									"id":"patient:administrativeGenderCode",
+									"id":"CD-patient:recordTarget-patientRole-patient:Data-patient:administrativeGenderCode",
 									"title":"administrativeGenderCode",
 									"comment":"R [1..1] Пол пациента",
 									"attributes":{
@@ -350,7 +350,7 @@
 									"child":[]
 								},	
 								{
-									"id":"patient:birthTime",
+									"id":"CD-patient:recordTarget-patientRole-patient:Data-patient:birthTime",
 									"title":"birthTime",
 									"comment":"R [1..1] Дата рождения пациента",
 									"attributes":{
@@ -362,14 +362,14 @@
 							]
 						},
 						{
-							"id":"providerOrganization",
+							"id":"CD-patient:recordTarget-patientRole-providerOrganization",
 							"title":"providerOrganization",
 							"comment":"R [1..1] Организация (ЛПУ или его филиал), оказавшая медицинскую помощь",
 							"attributes":{},
 							"value":"null",
 							"child":[
 								{									
-									"id":"providerOrganization:id",
+									"id":"CD-patient:recordTarget-patientRole-providerOrganization-providerOrganization:id",
 									"title":"id",
 									"comment":"R [1..1] Уникальный идентификатор организации по справочнику \"Реестр медицинских организаций Российской Федерации\"",
 									"attributes":{
@@ -379,7 +379,7 @@
 									"child":[]
 								},
 								{									
-									"id":"providerOrganization:identity:Props",
+									"id":"CD-patient:recordTarget-patientRole-providerOrganization-providerOrganization:identity:Props",
 									"title":"identity:Props",
 									"comment":"[1..1] Реквизиты организации",
 									"attributes":{
@@ -389,7 +389,7 @@
 									"child":[]
 								},
 								{									
-									"id":"providerOrganization:name",
+									"id":"CD-patient:recordTarget-patientRole-providerOrganization-providerOrganization:name",
 									"title":"name",
 									"comment":"R [1..1] Наименование организации",
 									"attributes":{},
@@ -397,7 +397,7 @@
 									"child":[]
 								},
 								{
-									"id":"providerOrganization:identity:addr",
+									"id":"CD-patient:recordTarget-patientRole-providerOrganization-providerOrganization:identity:addr",
 									"title":"addr",
 									"comment":"[1..1] Адрес организации",
 									"attributes":{
@@ -412,6 +412,117 @@
 						
 				}
 			]		
-		}
+		},
+		{
+			"id":"CD-author",
+			"title":"author",
+			"comment":"R [1..1] ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-author-time",
+					"title":"time",
+					"comment":"R [1..1] Дата подписи документа автором",
+					"attributes":{
+						"value":"*"
+					},
+					"value":"null",
+					"child":[]
+				},
+				{
+					"id":"CD-author-assignedAuthor",
+					"title":"assignedAuthor",
+					"comment":"R [1..1] АВТОР (роль)",
+					"attributes":{
+						"value":"null"
+					},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-author-assignedAuthor-idAuthor",
+							"title":"id",
+							"comment":"R [1..1] Уникальный идентификатор автора в МИС",
+							"attributes":{
+								"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.70",
+								"extension":"*"
+							},
+							"value":"null",
+							"child":[]					
+						},
+						{
+							"id":"CD-author-assignedAuthor-idSnils",
+							"title":"id",
+							"comment":"R [1..1] СНИЛС автора",
+							"attributes":{
+								"root":"1.2.643.100.3",
+								"extension":"*"
+							},
+							"value":"null",
+							"child":[]					
+						},
+						{
+							"id":"CD-author-assignedAuthor-positionCode",
+							"title":"code",
+							"comment":"R [1..1] Код должности автора",
+							"attributes":{
+								"code":"*",
+								"codeSystem":"1.2.643.5.1.13.13.11.1002",
+								"codeSystemVersion":"7.1",
+								"codeSystemName":"Должности медицинских и фармацевтических работников", 
+								"displayName":"*"
+							},
+							"value":"null",
+							"child":[]					
+						},
+						{
+							"id":"CD-author-assignedAuthor-assignedPerson",
+							"title":"assignedPerson",
+							"comment":"R [1..1] АВТОР (человек)",
+							"attributes":{},
+							"value":"null",
+							"child":[								
+								{
+									"id":"CD-author-assignedAuthor-assignedPerson-assignedPerson:Name",
+									"title":"name",
+									"comment":" R [1..1] Фамилия, Имя, Отчество автора",
+									"attributes":{},
+									"value":"none",
+									"child":[
+										{
+											"id":"CD-author-assignedAuthor-assignedPerson-assignedPerson:Name-familyName",
+											"title":"family",
+											"comment":"R [1..1] Фамилия",
+											"attributes":{},
+											"value":"*",
+											"child":[]
+										},
+										{
+											"id":"CD-author-assignedAuthor-assignedPerson-assignedPerson:Name-givenName",
+											"title":"given",
+											"comment":"R [1..1] Имя",
+											"attributes":{},
+											"value":"*",
+											"child":[]
+										},
+										{
+											"id":"CD-author-assignedAuthor-assignedPerson-assignedPerson:Name-patronymic",
+											"title":"identity:Patronymic",
+											"comment":"[0..1] Отчество",
+											"attributes":{
+												"xsi:type":"ST"
+											},
+											"value":"*",
+											"child":[]
+										}
+									]	
+								}
+							]					
+						}
+					]
+				}
+			]
+		}			
+					
 	]
 }		

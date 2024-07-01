@@ -81,4 +81,29 @@
 			</providerOrganization>
 		</patientRole>
 	</recordTarget>
+	<!--R [1..1] ДАННЫЕ ОБ АВТОРЕ ДОКУМЕНТА-->
+	<author>
+		<!--R [1..1] Дата подписи документа автором-->
+		<time value="202105261835+0300" />
+		<!--R [1..1] АВТОР (роль)-->
+		<assignedAuthor value="null">
+			<!--R [1..1] Уникальный идентификатор автора в МИС-->
+			<id root="1.2.643.5.1.13.13.12.2.77.9638.100.1.1.70" extension="2341" />
+			<!--R [1..1] СНИЛС автора-->
+			<id root="1.2.643.100.3" extension="321-654-777 09" />
+			<!--R [1..1] Код должности автора-->
+			<code code="57" codeSystem="1.2.643.5.1.13.13.11.1002" codeSystemVersion="7.1" codeSystemName="Должности медицинских и фармацевтических работников" displayName="врач-патологоанатом" />
+			<!--R [1..1] АВТОР (человек)-->
+			<assignedPerson>
+				<!-- R [1..1] Фамилия, Имя, Отчество автора-->
+				<name>none<!--R [1..1] Фамилия-->
+					<family>Белов</family>
+					<!--R [1..1] Имя-->
+					<given>Алексей</given>
+					<!--[0..1] Отчество-->
+					<identity:Patronymic xsi:type="ST">Иванович</identity:Patronymic>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
 </ClinicalDocument>
