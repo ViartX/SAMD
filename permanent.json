@@ -522,7 +522,455 @@
 					]
 				}
 			]
-		}			
-					
+		},
+		{
+			"id":"CD-custodian",
+			"title":"custodian",
+			"comment":"R [1..1] ДАННЫЕ ОБ ОРГАНИЗАЦИИ-ВЛАДЕЛЬЦЕ ДОКУМЕНТА",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-custodian-assignedCustodian",
+					"title":"assignedCustodian",
+					"comment":"R [1..1] Организация-владелец документа (роль)",
+					"attributes":{},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-custodian-assignedCustodian-representedCustodianOrganization",
+							"title":"representedCustodianOrganization",
+							"comment":"R [1..1] Организация-владелец документа (организация)",
+							"attributes":{
+								"classCode":"ORG"
+							},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-custodian-assignedCustodian-representedCustodianOrganization-idOrg",
+									"title":"id",
+									"comment":"R [1..1] Уникальный идентификатор организации",
+									"attributes":{
+										"root":"*"
+									},
+									"value":"null",
+									"child":[]								
+								},
+								{
+									"id":"CD-custodian-assignedCustodian-representedCustodianOrganization-name",
+									"title":"name",
+									"comment":"R [1..1] Наименование организации",
+									"attributes":{},
+									"value":"*",
+									"child":[]								
+								},
+								{
+									"id":"CD-custodian-assignedCustodian-representedCustodianOrganization-addr",
+									"title":"addr",
+									"comment":"R [1..1] Адрес организации",
+									"attributes":{},
+									"value":"null",
+									"child":[
+										{
+											"id":"CD-custodian-assignedCustodian-representedCustodianOrganization-addr-streetAddressLine",
+											"title":"streetAddressLine",
+											"comment":"R [1..1] Адрес текстом",
+											"attributes":{},
+											"value":"*",
+											"child":[]											
+										},
+										{
+											"id":"CD-custodian-assignedCustodian-representedCustodianOrganization-addr-address:stateCode",
+											"title":"address:stateCode",
+											"comment":"R [1..1] Кодирование субъекта РФ (Код региона в ФНС по справочнику \"Субъекты Российской Федерации\" (OID:1.2.643.5.1.13.13.99.2.206))",
+											"attributes":{
+												"xsi:type":"CD",
+												"code":"*",
+												"codeSystem":"1.2.643.5.1.13.13.99.2.206",
+												"codeSystemVersion":"6.2",
+												"codeSystemName":"Субъекты Российской Федерации",
+												"displayName":"*"											
+											},
+											"child":[]	
+										},
+										{
+											"id":"CD-custodian-assignedCustodian-representedCustodianOrganization-addr-FiasAddress",
+											"title":"fias:Address",
+											"comment":"[1..1] Кодирование адреса по ФИАС",
+											"attributes":{
+												"nullFlavor":"NA"	
+											},
+											"value":"null",
+											"child":[]	
+										}
+									]					
+								}							
+							]
+						}
+
+					]
+				}
+			]
+		},
+		{
+			"id":"CD-informationRecipient",
+			"title":"informationRecipient",
+			"comment":"R [1..1] ДАННЫЕ О ПОЛУЧАТЕЛЕ ДОКУМЕНТА",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-informationRecipient-intendedRecipient",
+					"title":"intendedRecipient",
+					"comment":"R [1..1] Получатель документа (организация)",
+					"attributes":{},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-informationRecipient-intendedRecipient-receivedOrganization",
+							"title":"receivedOrganization",
+							"comment":"R [1..1] Получатель документа (организация)",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-informationRecipient-intendedRecipient-receivedOrganization-idOrg",
+									"title":"id",
+									"comment":"R [1..1] Уникальный идентификатор получающей организации",
+									"attributes":{
+										"root":"*"	
+									},
+									"value":"null",
+									"child":[]	
+								},
+								{
+									"id":"CD-informationRecipient-intendedRecipient-receivedOrganization-name",
+									"title":"name",
+									"comment":"R [1..1] Наименование получающей организации",
+									"attributes":{},
+									"value":"*",
+									"child":[]	
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"CD-legalAuthenticator",
+			"title":"legalAuthenticator",
+			"comment":"R [1..1] ДАННЫЕ О ЛИЦЕ, ПРИДАВШЕМ ЮРИДИЧЕСКУЮ СИЛУ ДОКУМЕНТУ",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-legalAuthenticator-time",
+					"title":"time",
+					"comment":"R [1..1] Дата подписи документа лицом, придавшем юридическую силу документу",
+					"attributes":{
+						"value":"*"
+					},
+					"value":"null",
+					"child":[]
+				},
+				{
+					"id":"CD-legalAuthenticator-signatureCode",
+					"title":"signatureCode",
+					"comment":"R [1..1] Факт наличия подписи на документе",
+					"attributes":{
+						"code":"S"
+					},
+					"value":"null",
+					"child":[]
+				},
+				{
+					"id":"CD-legalAuthenticator-assignedEntity",
+					"title":"assignedEntity",
+					"comment":"R [1..1] Лицо, придавшее юридическую силу документу (роль)",
+					"attributes":{},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-legalAuthenticator-assignedEntity-idPerson",
+							"title":"id",
+							"comment":"R [1..1] Уникальный идентификатор лица, придавшего юридическую силу документу",
+							"attributes":{
+								"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.70",
+								"extension":"*"
+							},
+							"value":"null",
+							"child":[]							
+						},
+						{
+							"id":"CD-legalAuthenticator-assignedEntity-idSnils",
+							"title":"id",
+							"comment":"R [1..1] СНИЛС лица, придавшего юридическую силу документу",
+							"attributes":{
+								"root":"1.2.643.100.3",
+								"extension":"*"
+							},
+							"value":"null",
+							"child":[]							
+						},	
+						{
+							"id":"CD-legalAuthenticator-assignedEntity-codePosition",
+							"title":"code",
+							"comment":"R [1..1] Код должности лица, придавшего юридическую силу документу",
+							"attributes":{
+								"code":"*",
+								"codeSystem":"1.2.643.5.1.13.13.11.1002",
+								"codeSystemVersion":"7.1",
+								"codeSystemName":"Должности медицинских и фармацевтических работников",
+								"displayName":"*"
+							},
+							"value":"null",
+							"child":[]							
+						},
+						{
+							"id":"CD-legalAuthenticator-assignedEntity-assignedPerson",
+							"title":"assignedPerson",
+							"comment":"R [1..1] ФИО лица, придавшего юридическую силу документу",
+							"attributes":{},
+							"value":"null",
+							"child":[								
+								{
+									"id":"CD-legalAuthenticator-assignedEntity-assignedPerson-name",
+									"title":"name",
+									"comment":"R [1..1] ФИО лица, придавшего юридическую силу документу",
+									"attributes":{},
+									"value":"none",
+									"child":[
+										{
+											"id":"CD-legalAuthenticator-assignedEntity-assignedPerson-name-familyName",
+											"title":"family",
+											"comment":"R [1..1] Фамилия",
+											"attributes":{},
+											"value":"*",
+											"child":[]
+										},
+										{
+											"id":"CD-legalAuthenticator-assignedEntity-assignedPerson-name-givenName",
+											"title":"given",
+											"comment":"R [1..1] Имя",
+											"attributes":{},
+											"value":"*",
+											"child":[]
+										},
+										{
+											"id":"CD-legalAuthenticator-assignedEntity-assignedPerson-name-patronymic",
+											"title":"identity:Patronymic",
+											"comment":"[0..1] Отчество",
+											"attributes":{
+												"xsi:type":"ST"
+											},
+											"value":"*",
+											"child":[]
+										}
+									]	
+								}
+							]					
+						}				
+					]
+				}								
+			]
+		},
+		{
+			"id":"CD-participant",
+			"title":"participant",
+			"comment":"R [1..1] СВЕДЕНИЯ ОБ ИСТОЧНИКЕ ОПЛАТЫ",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-participant-associatedEntity",
+					"title":"associatedEntity",
+					"comment":"R [1..1] Источник оплаты",
+					"attributes":{
+						"classCode":"GUAR"
+					},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-participant-associatedEntity-code",
+							"title":"code",
+							"comment":"R [1..1] Кодирование источника оплаты",
+							"attributes":{
+								"code":"*",
+								"codeSystem":"1.2.643.5.1.13.13.11.1039",
+								"codeSystemVersion":"5.1",
+								"codeSystemName":"Источники оплаты медицинской помощи",
+								"displayName":"*"
+							},
+							"value":"null",
+							"child":[]
+						},
+						{
+							"id":"CD-participant-associatedEntity-identity:DocInfo",
+							"title":"identity:DocInfo",
+							"comment":"[1..1] Документ-основание",
+							"attributes":{
+								"nullFlavor":"NA"
+							},
+							"value":"null",
+							"child":[]
+						}						
+					]
+				}
+			]				
+		},
+		{
+			"id":"CD-documentationOf",
+			"title":"documentationOf",
+			"comment":"R [1..1] СВЕДЕНИЯ О ДОКУМЕНТИРУЕМОМ СОБЫТИИ",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-documentationOf-serviceEvent",
+					"title":"serviceEvent",
+					"comment":"R [1..1] Проведённое исследование",
+					"attributes":{},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-documentationOf-serviceEvent-code",
+							"title":"code",
+							"comment":"R [1..1] Код услуги - по справочнику \"Тип документируемого события\" (OID:1.2.643.5.1.13.13.99.2.726)",
+							"attributes":{
+								"code":"*",
+								"codeSystem":"1.2.643.5.1.13.13.99.2.726",
+								"codeSystemVersion":"1.1",
+								"codeSystemName":"Типы документированных событий",
+								"displayName":"*"
+							},
+							"value":"null",
+							"child":[]
+						},		
+						{
+							"id":"CD-documentationOf-serviceEvent-effectiveTime",
+							"title":"effectiveTime",
+							"comment":"R [1..1] Даты исследования",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-documentationOf-serviceEvent-effectiveTime-low",
+									"title":"low",
+									"comment":"R [1..1] Дата регистрации материала в ПАО",
+									"attributes":{
+										"value":"*"
+									},
+									"value":"null",
+									"child":[]	
+								},
+								{
+									"id":"CD-documentationOf-serviceEvent-effectiveTime-high",
+									"title":"high",
+									"comment":"R [1..1] Дата окончания исследования",
+									"attributes":{
+										"value":"*"
+									},
+									"value":"null",
+									"child":[]	
+								}
+
+							]
+						},
+						{
+							"id":"CD-documentationOf-serviceEvent-performer",
+							"title":"performer",
+							"comment":"R [1..*] СВЕДЕНИЯ ОБ ИСПОЛНИТЕЛЯХ ИССЛЕДОВАНИЯ",
+							"attributes":{
+								"typeCode":"PPRF"
+							},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-documentationOf-serviceEvent-performer-assignedEntity",
+									"title":"assignedEntity",
+									"comment":"R [1..1] Участник докуметированного события (роль)",
+									"attributes":{},
+									"value":"null",
+									"child":[
+										{
+											"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-idPerformer",
+											"title":"id",
+											"comment":"R [1..1] Уникальный идентификатор исполнителя в МИС",
+											"attributes":{
+												"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.70",
+												"extension":"*"
+											},
+											"value":"null",
+											"child":[]									
+										},
+										{
+											"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-snilsPerformer",
+											"title":"id",
+											"comment":"R [1..1] СНИЛС исполнителя",
+											"attributes":{
+												"root":"1.2.643.100.3",
+												"extension":"*"
+											},
+											"value":"null",
+											"child":[]									
+										},
+										{
+											"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-code",
+											"title":"code",
+											"comment":"R [1..1] Код должности исполнителя",
+											"attributes":{
+												"code":"*",
+												"codeSystem":"1.2.643.5.1.13.13.11.1002",
+												"codeSystemVersion":"7.1",
+												"codeSystemName":"Должности медицинских и фармацевтических работников",
+												"displayName":"*"
+											},
+											"value":"null",
+											"child":[]									
+										},
+										{
+											"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-assignedPerson",
+											"title":"assignedPerson",
+											"comment":"R [1..1] ИСПОЛНИТЕЛЬ (человек)",
+											"attributes":{},
+											"value":"null",
+											"child":[
+												{
+													"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-assignedPerson-familyName",
+													"title":"family",
+													"comment":"R [1..1] Фамилия",
+													"attributes":{},
+													"value":"*",
+													"child":[]
+												},
+												{
+													"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-assignedPerson-givenName",
+													"title":"given",
+													"comment":"R [1..1] Имя",
+													"attributes":{},
+													"value":"*",
+													"child":[]
+												},
+												{
+													"id":"CD-documentationOf-serviceEvent-performer-assignedEntity-assignedPerson-patronymic",
+													"title":"identity:Patronymic",
+													"comment":"[0..1] Отчество",
+													"attributes":{
+														"xsi:type":"ST"
+													},
+													"value":"*",
+													"child":[]
+												}												
+											]												
+										}
+									]										
+								}
+							]
+						}
+					]
+				}
+			]										
+		}					
 	]
 }		
