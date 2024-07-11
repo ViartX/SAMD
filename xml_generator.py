@@ -1,11 +1,11 @@
-import xml_entity as xe
+from xml_entity import *
 import itertools
 import xml.etree.ElementTree as ET
 from pathlib import Path
 import json_parcer as jpars
 
 filenameP = 'permanent.json'
-filenameV = 'variable_short.json'
+filenameV = 'variable.json'
 filenameXML = 'result.xml'
 tree = None
 
@@ -20,7 +20,7 @@ tree = None
 #             if value != "":
 #                 return value
 #     return ""
-def get_entity_value_by_id(jsonV: xe.ListOfEntityV, entityId, index=1) -> str:
+def get_entity_value_by_id(jsonV: ListOfEntityV, entityId, index=1) -> str:
     counter = 1
     result = "NOT FOUND"
     for entity in jsonV.variables:
@@ -45,7 +45,7 @@ def get_entity_value_by_id(jsonV: xe.ListOfEntityV, entityId, index=1) -> str:
 #             if value != "":
 #                 return value
 #     return ""
-def get_attribute_value_by_id(jsonV: xe.Entity, entityId, attributeName, index=1) -> str:
+def get_attribute_value_by_id(jsonV: Entity, entityId, attributeName, index=1) -> str:
     counter = 1
     result = "NOT FOUND"
     for entity in jsonV.variables:
@@ -60,7 +60,7 @@ def get_attribute_value_by_id(jsonV: xe.Entity, entityId, attributeName, index=1
 
 
 # поиск количества элементов в структуре json variable с одинаковым entity id
-def count_entity_with_id(jsonV: xe.ListOfEntityV, entityId) ->int:
+def count_entity_with_id(jsonV: ListOfEntityV, entityId) ->int:
     counter = 0
     for entity in jsonV.variables:
         if entity.id == entityId:
@@ -68,37 +68,90 @@ def count_entity_with_id(jsonV: xe.ListOfEntityV, entityId) ->int:
     return counter
 
 
-def entity_to_xml(source_xml_tag, jsonP: xe.Entity, jsonV: xe.Entity):
+# поиск количества повторений для сущности, по полю repetitions
+def get_jsonv_entity_repetitions_by_id(jsonV: ListOfEntityV, entityId) ->int:
+    for entity in jsonV.variables:
+        if entity.id == entityId:
+            return entity.repetitions
+    return 1
+
+
+# возвращает данные статического словаря по Entity.id
+def get_static_entity_by_id(static, entityId) -> Entity:
+    print(static.id, entityId)
+    if static.id == entityId:
+        return static
+    else:
+        for child in static.child:
+            result = get_static_entity_by_id(child, entityId)
+            if result is not None:
+                return result
+    return None
+
+
+def entity_to_xml_multirecord(source_xml_tag, jsonP: Entity, jsonV: Entity, index=1):
     global tree
-    comment = ET.Comment(jsonP.comment)
-    if jsonP.comment != "":
+
+    entity_count = get_jsonv_entity_repetitions_by_id(jsonV, jsonP.id)
+    if entity_count == 0:
+        entity_count = 1
+
+    #print(jsonP.id, entity_count)
+
+    for i in range(1, entity_count+1):
+
+        print(jsonP.id, i)
+        comment = ET.Comment(jsonP.comment)
+        if jsonP.comment != "":
+            source_xml_tag.append(comment)
+
+        for attrname in jsonP.attributes:
+            if jsonP.attributes[attrname] == "*":
+                jsonP.attributes[attrname] = get_attribute_value_by_id(jsonV, jsonP.id, attrname, i)
+
+        if source_xml_tag is None:
+            result_xml_tag = ET.Element(jsonP.title, jsonP.attributes)
+            tree = ET.ElementTree(element=result_xml_tag)
+        else:
+            result_xml_tag = ET.SubElement(source_xml_tag, jsonP.title, jsonP.attributes)
+
+        text = jsonP.value
+        if text == "*":
+            text = get_entity_value_by_id(jsonV, jsonP.id, i)
+            #print(text, i)
+        if text != "null":
+            result_xml_tag.text = text
+
+        for entity in jsonP.child:
+            entity_to_xml_multirecord(result_xml_tag, entity, jsonV)
+
+    return result_xml_tag
+    #return
+
+
+def entity_to_xml(source_xml_tag, entity:Entity):
+    global tree
+
+    comment = ET.Comment(entity.comment)
+    if entity.comment != "":
         source_xml_tag.append(comment)
 
-    for attrname in jsonP.attributes:
-        if jsonP.attributes[attrname] == "*":
-            jsonP.attributes[attrname] = get_attribute_value_by_id(jsonV, jsonP.id, attrname)
-
     if source_xml_tag is None:
-        result_xml_tag = ET.Element(jsonP.title, jsonP.attributes)
+        result_xml_tag = ET.Element(entity.title, entity.attributes)
         tree = ET.ElementTree(element=result_xml_tag)
     else:
-        result_xml_tag = ET.SubElement(source_xml_tag, jsonP.title, jsonP.attributes)
+        result_xml_tag = ET.SubElement(source_xml_tag, entity.title, entity.attributes)
 
-    text = jsonP.value
-    if text == "*":
-        text = get_entity_value_by_id(jsonV, jsonP.id)
-    if text != "null":
-        result_xml_tag.text = text
+    result_xml_tag.text = entity.value
 
-    for entity in jsonP.child:
-        entity_to_xml(result_xml_tag, entity, jsonV)
-
+    for child in entity.child:
+        entity_to_xml(result_xml_tag, child)
 
     return result_xml_tag
 
 
 
-def fill_patient_role(ClinicalDocument, jsonP: xe.Entity, jsonV: xe.Entity):
+def fill_patient_role(ClinicalDocument, jsonP: Entity, jsonV: Entity):
 
     icomment = itertools.count(1)
     comment=ET.Comment(jsonP.comment)
@@ -121,23 +174,80 @@ def fill_patient_role(ClinicalDocument, jsonP: xe.Entity, jsonV: xe.Entity):
 
 
 
+def merge_entities(static: Entity, variable: Entity) -> Entity:
+
+    # id: str              # уникальный идентификатор тега
+    # title: str           # название тега
+    # comment: str = ""    # комментарий, идущий перед тегом
+    # attributes: dict = field(default=dict)  # аттрибуты тега
+    # value: str | None = None  # текст тега
+    # child: list['Entity'] = field(default=list)
+
+    static_e = get_static_entity_by_id(static, variable.id)
+
+    if not static_e:
+        raise ValueError(f"No entity found with ID {variable.id}")
+
+
+    attributes = static_e.attributes.copy()
+    for attrname in attributes:
+        if attributes[attrname] == "*":
+            attributes[attrname] = variable.attributes[attrname]
+
+    value = static_e.value
+    if value == "*":
+        value = variable.value
+    if value == "null":
+        value = None
+
+    child_list = []
+    if isinstance(variable.child, list):
+        for child in variable.child:
+            merged_child = merge_entities(static_e, child)
+            child_list.append(merged_child)
+
+    merged = Entity(
+        id=static_e.id,
+        title=static_e.title,
+        comment=static_e.comment,
+        attributes=attributes,
+        value=value,
+        child=child_list
+    )
+
+    return merged
+
+
+
 def build_xml(filenameP, filenameV, filenameXML):
-    jsonP = xe.read_json_test(filenameP)
-    #jsonV = xe.read_json_test(filenameV)
-    jsonV = xe.read_json_entity_variable(filenameV)
+    static = read_json_test(filenameP)
+    #jsonV = read_json_test(filenameV)
+    variable = read_json_test(filenameV)
 
     #ClinicalDocument = ET.Element(jsonP.title)
     #tree = ET.ElementTree(element=ClinicalDocument)
 
-    entity_to_xml(None, jsonP, jsonV)
+    merged = merge_entities(static, variable)
+    entity_to_xml(None, merged)
+
+    #entity_to_xml(None, jsonP, jsonV)
     #fill_patient_role(ClinicalDocument, jsonP, jsonV)
 
     ET.indent(tree, space="\t", level=0)
     tree.write(filenameXML, encoding="UTF-8")
 
+    #print(get_jsonv_entity_repetitions_by_id(jsonV, "CD-documentationOf-serviceEvent-performer"))
     #for child in jsonP.child:
     #    print(child.title)
 
 
-build_xml(filenameP,filenameV,filenameXML)
+build_xml(filenameP, filenameV, filenameXML)
+# static = read_json_test(filenameP)
+# variable = read_json_test(filenameV)
 
+# print(static)
+# result = get_static_entity_by_id(static, "CD-custodian-assignedCustodian-representedCustodianOrganization-addr")
+# print(result)
+
+# merged = merge_entities(static, variable)
+# print(merged)

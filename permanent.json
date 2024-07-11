@@ -1,5 +1,5 @@
 {		
-	"id":"ClinicalDocument",
+	"id":"CD",
 	"title":"ClinicalDocument",
 	"comment":"",
 	"attributes":{
@@ -487,7 +487,7 @@
 									"title":"name",
 									"comment":" R [1..1] Фамилия, Имя, Отчество автора",
 									"attributes":{},
-									"value":"none",
+									"value":"null",
 									"child":[
 										{
 											"id":"CD-author-assignedAuthor-assignedPerson-assignedPerson:Name-familyName",
@@ -971,6 +971,1319 @@
 					]
 				}
 			]										
-		}					
+		},
+		{
+			"id":"CD-component01",
+			"title":"component",
+			"comment":"R [1..1] ТЕЛО ДОКУМЕНТА",
+			"attributes":{},
+			"value":"null",
+			"child":[
+				{
+					"id":"CD-component01-structuredBody",
+					"title":"structuredBody",
+					"comment":"R [1..1] Структурированное тело документа",
+					"attributes":{},
+					"value":"null",
+					"child":[
+						{
+							"id":"CD-component01-structuredBody-component01",
+							"title":"component",
+							"comment":"R [1..1] СЕКЦИЯ: РЕГИСТРАЦИОННЫЕ ДАННЫЕ ПРИЖИЗНЕННОГО ПАТОЛОГО-АНАТОМИЧЕСКОГО ИССЛЕДОВАНИЯ",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-component01-structuredBody-component01-section01",
+									"title":"section",
+									"comment":"",
+									"attributes":{},
+									"value":"null",
+									"child":[
+										{
+											"id":"CD-component01-structuredBody-component01-section01-code",
+											"title":"code",
+											"comment":"R [1..1] код секции",
+											"attributes":{
+												"code":"GISTCASE",
+												"codeSystem":"1.2.643.5.1.13.13.99.2.197",
+												"codeSystemVersion":"1.9",
+												"codeSystemName":"Секции электронных медицинских документов",
+												"displayName":"Регистрационные данные прижизненного патолого-анатомического исследования"
+											},
+											"value":"null",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component01-section01-title",
+											"title":"title",
+											"comment":"R [1..1] заголовок секции",
+											"attributes":{},
+											"value":"РЕГИСТРАЦИОННЫЕ ДАННЫЕ ПРИЖИЗНЕННОГО ПАТОЛОГО-АНАТОМИЧЕСКОГО ИССЛЕДОВАНИЯ",
+											"child":[]												
+										},										
+										{
+											"id":"CD-component01-structuredBody-component01-section01-text",
+											"title":"text",
+											"comment":"R [1..1] наполнение секции",
+											"attributes":{},
+											"value":"*",
+											"child":[]																					
+										},
+										{
+											"id":"CD-component01-structuredBody-component01-section01-entry01",
+											"title":"entry",
+											"comment":"R [1..1] кодирование ... Информация о случае",
+											"attributes":{},
+											"value":"",
+											"child":[
+												{
+													"id":"CD-component01-structuredBody-component01-section01-entry01-act",
+													"title":"act",
+													"comment":"",
+													"attributes":{
+														"classCode":"ACT",
+														"moodCode":"EVN"
+													},
+													"value":"",
+													"child":[
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry01-act-id",
+															"title":"act",
+															"comment":"R [1..1] Кодирование - Регистрационный номер случая в МИС",
+															"attributes":{
+																"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.90",
+																"extension":"*"
+															},
+															"value":"",
+															"child":[]															
+														},
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry01-act-code",
+															"title":"code",
+															"comment":"R [1..1] Кодирование - указание на регистрацию материалов",
+															"attributes":{
+																"code":"4001",
+																"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																"codeSystemVersion":"1.34",
+																"codeSystemName":"Кодируемые поля CDA документов",
+																"displayName":"Регистрация прижизненного паталого-анатомического исследования"
+															},
+															"value":"",
+															"child":[]															
+														},
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry01-act-text",
+															"title":"text",
+															"comment":"R [1..1] Регистрационный номер случая текстом",
+															"attributes":{},
+															"value":"*",
+															"child":[]																
+														},
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry01-act-statusCode",
+															"title":"statusCode",
+															"comment":"R [1..1] Статус регистрации",
+															"attributes":{
+																"code":"completed"
+															},
+															"value":"",
+															"child":[]																
+														},	
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry01-act-effectiveTime",
+															"title":"effectiveTime",
+															"comment":"R [1..1] Временной промежуток от доставки до регистрации",
+															"attributes":{},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component01-section01-entry01-act-effectiveTime-low",
+																	"title":"low",
+																	"comment":"R [1..1] Дата и время доставки",
+																	"attributes":{},
+																	"value":"*",
+																	"child":[]																
+																},
+																{
+																	"id":"CD-component01-structuredBody-component01-section01-entry01-act-effectiveTime-high",
+																	"title":"high",
+																	"comment":"R [1..1] Дата и время регистрации",
+																	"attributes":{},
+																	"value":"*",
+																	"child":[]																
+																}																
+															]																
+														},
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry01-act-priorityCode",
+															"title":"priorityCode",
+															"comment":"R [1..1] Приоритет исследования",
+															"attributes":{
+																"code":"R",
+																"displayName":"В плановом порядке",
+																"codeSystemVersion":"1.1",
+																"codeSystem":"1.2.643.5.1.13.13.99.2.39",
+																"codeSystemName":"Порядок выполнения прижизненных патолого-анатомических исследований"
+															},
+															"value":"",
+															"child":[]																
+														}
+													]	
+												}											
+											]																					
+										},
+										{
+											"id":"CD-component01-structuredBody-component01-section01-entry02",
+											"title":"entry",
+											"comment":"R [1..1] кодирование ... Диагноз из направления на исследование",
+											"attributes":{},
+											"value":"",
+											"child":[
+												{
+													"id":"CD-component01-structuredBody-component01-section01-entry02-act",
+													"title":"act",
+													"comment":"",
+													"attributes":{
+														"classCode":"ACT",
+														"moodCode":"EVN"
+													},
+													"value":"",
+													"child":[
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry02-act-code",
+															"title":"code",
+															"comment":"R [1..1] Кодирование диагноза из направления",
+															"attributes":{
+																"code":"4017",
+																"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																"codeSystemVersion":"1.34",
+																"codeSystemName":"Кодируемые поля CDA документов",
+																"displayName":"Диагноз заболевания (состояния) по данным направления на прижизненное патолого-анатомическое исследование"
+															},
+															"value":"",
+															"child":[]														
+														},
+														{
+															"id":"CD-component01-structuredBody-component01-section01-entry02-act-entryRelationship",
+															"title":"entryRelationship",
+															"comment":"R [1..*] Кодирование диагноза из направления",
+															"attributes":{
+																"typeCode":"COMP"
+															},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component01-section01-entry02-act-entryRelationship-observation",
+																	"title":"observation",
+																	"comment":"",
+																	"attributes":{
+																		"classCode":"OBS",
+																		"moodCode":"EVN"
+																	},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component01-section01-entry02-act-entryRelationship-observation-code",
+																			"title":"code",
+																			"comment":"R [1..1] Кодирование шифра диагноза",
+																			"attributes":{
+																				"code":"809",
+																				"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																				"codeSystemVersion":"1.34",
+																				"codeSystemName":"Кодируемые поля CDA документов",
+																				"displayName":"Шифр по МКБ-10"
+																			},
+																			"value":"",
+																			"child":[]																			
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component01-section01-entry02-act-entryRelationship-observation-value",
+																			"title":"value",
+																			"comment":"R [1..1] Код МКБ-10",
+																			"attributes":{
+																				"xsi:type":"CD",
+																				"code":"*",
+																				"codeSystem":"1.2.643.5.1.13.13.11.1005",
+																				"codeSystemVersion":"2.14",
+																				"codeSystemName":"Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр)",
+																				"displayName":"*"
+																			},
+																			"value":"",
+																			"child":[]																			
+																		}																
+																	]																	
+																}
+															]														
+														}												
+													]
+												}
+											]
+										}																				
+									]									
+								}
+							]
+						},
+						{
+							"id":"CD-component01-structuredBody-component02",
+							"title":"component",
+							"comment":"R [1..1] СЕКЦИЯ: ИНФОРМАЦИЯ ОБ ИССЛЕДОВАННЫХ БИОМАТЕРИАЛАХ",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-component01-structuredBody-component02-section01",
+									"title":"section",
+									"comment":"",
+									"attributes":{},
+									"value":"null",
+									"child":[
+										{
+											"id":"CD-component01-structuredBody-component02-section01-code",
+											"title":"code",
+											"comment":"R [1..1] Информация о коде секции и кодификаторе",
+											"attributes":{
+												"code":"GISTSPECIMENS",
+												"codeSystem":"1.2.643.5.1.13.13.99.2.197",
+												"codeSystemVersion":"1.9",
+												"codeSystemName":"Секции электронных медицинских документов",
+												"displayName":"Информация об исследованных биоматериалах"
+											},
+											"value":"null",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component02-section01-title",
+											"title":"code",
+											"comment":"R [1..1] Заголовок секции",
+											"attributes":{},
+											"value":"ИНФОРМАЦИЯ ОБ ИССЛЕДОВАННЫХ БИОМАТЕРИАЛАХ",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component02-section01-text",
+											"title":"text",
+											"comment":"R [1..1] наполнение секции",
+											"attributes":{},
+											"value":"*",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component02-section01-entry01",
+											"title":"entry",
+											"comment":"R [1..1] Кодирование ... доставленные материалы для исследования",
+											"attributes":{},
+											"value":"",
+											"child":[
+												{
+													"id":"CD-component01-structuredBody-component02-section01-entry01-organizer",
+													"title":"organizer",
+													"comment":"",
+													"attributes":{
+														"classCode":"CLUSTER",
+														"moodCode":"EVN"
+													},
+													"value":"",
+													"child":[
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-statusCode",
+															"title":"statusCode",
+															"comment":"",
+															"attributes":{
+																"code":"completed"
+															},
+															"value":"",
+															"child":[]														
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component",
+															"title":"component",
+															"comment":"[1..*] Кодирование ... проба",
+															"attributes":{},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure",
+																	"title":"procedure",
+																	"comment":"R [1..1] кодирование ... данные о процедуре/операции взятия биоматериалов для исследования",
+																	"attributes":{
+																		"classCode":"PROC",
+																		"moodCode":"EVN"
+																	},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-code",
+																			"title":"code",
+																			"comment":"R [1..1] Способ получения биопсийного (операционного) материала для прижизненного патолого-анатомического исследования",
+																			"attributes":{
+																				"code":"6",
+																				"codeSystem":"1.2.643.5.1.13.13.99.2.33",
+																				"codeSystemVersion":"1.1",
+																				"codeSystemName":"Способ получения биопсийного (операционного) материала для прижизненного патолого-анатомического исследования",
+																				"displayName":"Операционный материал"
+																			},
+																			"value":"",
+																			"child":[]
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-statusCode",
+																			"title":"statusCode",
+																			"comment":"R [1..1] Статус выполнения процедуры",
+																			"attributes":{
+																				"code":"completed"
+																			},
+																			"value":"",
+																			"child":[]
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-effectiveTime",
+																			"title":"effectiveTime",
+																			"comment":"R [1..1] Дата и время забора материала",
+																			"attributes":{
+																				"value":"*"
+																			},
+																			"value":"",
+																			"child":[]																			
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen",
+																			"title":"specimen",
+																			"comment":"R [1..*] информация об биоматериале (пробе/флаконе) для исследования",
+																			"attributes":{},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-specimenRole",
+																					"title":"specimenRole",
+																					"comment":"",
+																					"attributes":{},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-specimenRole-id",
+																							"title":"id",
+																							"comment":"R [1..1] идентификатор биоматериала для исследования в информационно системе",
+																							"attributes":{
+																								"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.92",
+																								"extension":"*"
+																							},
+																							"value":"",
+																							"child":[]																							
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity",
+																							"title":"specimenPlayingEntity",
+																							"comment":"",
+																							"attributes":{
+																								"classCode":"ENT",
+																								"determinerCode":"INSTANCE"
+																							},
+																							"value":"",
+																							"child":[
+																								{
+																									"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity-code",
+																									"title":"code",
+																									"comment":"[1..1] Кодирование ... характер патологического процесса",
+																									"attributes":{
+																										"nullFlavor":"NA"
+																									},
+																									"value":"",
+																									"child":[]																									
+																								},
+																								{
+																									"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity-quantity",
+																									"title":"quantity",
+																									"comment":"R [1..1] количество объектов",
+																									"attributes":{
+																										"value":"*",
+																										"unit":"*"
+																									},
+																									"value":"",
+																									"child":[]																									
+																								},
+																								{
+																									"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity-desc",
+																									"title":"desc",
+																									"comment":"R [1..1] описание пробы биоматериала для исследования",
+																									"attributes":{},
+																									"value":"*",
+																									"child":[]																									
+																								}																
+																							]																								
+																						}
+																					]
+																				}																				
+																			]																			
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship01",
+																			"title":"entryRelationship",
+																			"comment":"[1..1] кодирование ... Номер флакона (пробы)",
+																			"attributes":{
+																				"typeCode":"REFR"
+																			},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship01-observation",
+																					"title":"observation",
+																					"comment":"",
+																					"attributes":{
+																						"classCode":"OBS",
+																						"moodCode":"EVN"
+																					},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship01-observation-code",
+																							"title":"code",
+																							"comment":"",
+																							"attributes":{
+																								"code":"4005",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																								"codeSystemVersion":"1.34",
+																								"codeSystemName":"Кодируемые поля CDA документов",
+																								"displayName":"Номер флакона (пробы)"
+																							},
+																							"value":"",
+																							"child":[]																						
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship01-observation-value",
+																							"title":"value",
+																							"comment":"",
+																							"attributes":{
+																								"xsi:type":"INT",
+																								"value":"*"
+																							},
+																							"value":"",
+																							"child":[]																							
+																						}
+																					]																					
+																				}
+																			]																			
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship02",
+																			"title":"entryRelationship",
+																			"comment":"[1..1] кодирование ... Материал доставлен в 10%-ном растворе нейтрального формалина",
+																			"attributes":{
+																				"typeCode":"REFR"
+																			},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship02-observation",
+																					"title":"observation",
+																					"comment":"",
+																					"attributes":{
+																						"classCode":"OBS",
+																						"moodCode":"EVN"
+																					},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship02-observation-code",
+																							"title":"code",
+																							"comment":"",
+																							"attributes":{
+																								"code":"4002",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																								"codeSystemVersion":"1.34",
+																								"codeSystemName":"Кодируемые поля CDA документов",
+																								"displayName":"Материал доставлен в 10%-ном растворе нейтрального формалина"
+																							},
+																							"value":"",
+																							"child":[]																						
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship02-observation-value",
+																							"title":"value",
+																							"comment":"",
+																							"attributes":{
+																								"xsi:type":"BL",
+																								"value":"*"
+																							},
+																							"value":"",
+																							"child":[]																							
+																						}
+																					]																					
+																				}
+																			]																			
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship03",
+																			"title":"entryRelationship",
+																			"comment":"[1..1] кодирование ... Материал загрязнен",
+																			"attributes":{
+																				"typeCode":"REFR"
+																			},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship03-observation",
+																					"title":"observation",
+																					"comment":"",
+																					"attributes":{
+																						"classCode":"OBS",
+																						"moodCode":"EVN"
+																					},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship03-observation-code",
+																							"title":"code",
+																							"comment":"",
+																							"attributes":{
+																								"code":"4003",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																								"codeSystemVersion":"1.34",
+																								"codeSystemName":"Кодируемые поля CDA документов",
+																								"displayName":"Материал загрязнен"
+																							},
+																							"value":"",
+																							"child":[]																						
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship03-observation-value",
+																							"title":"value",
+																							"comment":"",
+																							"attributes":{
+																								"xsi:type":"BL",
+																								"value":"*"
+																							},
+																							"value":"",
+																							"child":[]																							
+																						}
+																					]																					
+																				}
+																			]																			
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship04",
+																			"title":"entryRelationship",
+																			"comment":"1..1] кодирование ... Отметка о сохранности упаковки",
+																			"attributes":{
+																				"typeCode":"REFR"
+																			},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship04-observation",
+																					"title":"observation",
+																					"comment":"",
+																					"attributes":{
+																						"classCode":"OBS",
+																						"moodCode":"EVN"
+																					},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship04-observation-code",
+																							"title":"code",
+																							"comment":"",
+																							"attributes":{
+																								"code":"4004",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																								"codeSystemVersion":"1.34",
+																								"codeSystemName":"Кодируемые поля CDA документов",
+																								"displayName":"Отметка о сохранности упаковки"
+																							},
+																							"value":"",
+																							"child":[]																						
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry01-organizer-component-procedure-specimen-entryRelationship04-observation-value",
+																							"title":"value",
+																							"comment":"",
+																							"attributes":{
+																								"xsi:type":"BL",
+																								"value":"*"
+																							},
+																							"value":"",
+																							"child":[]																							
+																						}
+																					]																					
+																				}
+																			]																			
+																		}																																																																																																						
+																	]																
+																}
+															]														
+														}														
+													]												
+												}
+											]												
+										},
+										{
+											"id":"CD-component01-structuredBody-component02-section01-entry02",
+											"title":"entry",
+											"comment":"R [1..1] Кодирование ... вырезка тканевых фрагментов и макроскопическое описание",
+											"attributes":{},
+											"value":"",
+											"child":[
+												{
+													"id":"CD-component01-structuredBody-component02-section01-entry02-observation",
+													"title":"observation",
+													"comment":"",
+													"attributes":{
+														"classCode":"OBS",
+														"moodCode":"EVN"
+													},
+													"value":"",
+													"child":[
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-code",
+															"title":"code",
+															"comment":"R [1..1] Кодирование ... Вырезка и макроскопическое описание",
+															"attributes":{
+																"code":"4011",
+																"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																"codeSystemVersion":"1.34",
+																"codeSystemName":"Кодируемые поля CDA документов",
+																"displayName":"Вырезка и макроскопическое описание"
+															},
+															"value":"",
+															"child":[]													
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-text",
+															"title":"text",
+															"comment":"R [1..1] Врачебное Макроскопическое описание",
+															"attributes":{},
+															"value":"*",
+															"child":[]													
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-statusCode",
+															"title":"statusCode",
+															"comment":"",
+															"attributes":{
+																"code":"completed"
+															},
+															"value":"",
+															"child":[]													
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-effectiveTime",
+															"title":"effectiveTime",
+															"comment":"R [1..1] Дата вырезки",
+															"attributes":{
+																"value":"*"
+															},
+															"value":"",
+															"child":[]
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-value",
+															"title":"value",
+															"comment":"R [1..1] Количество вырезанных объектов, взятых в проводку",
+															"attributes":{
+																"xsi:type":"INT",
+																"value":"*"
+															},
+															"value":"",
+															"child":[]
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer",
+															"title":"performer",
+															"comment":"R [1..*] ссылки на участников",
+															"attributes":{},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity",
+																	"title":"assignedEntity",
+																	"comment":"",
+																	"attributes":{},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-id",
+																			"title":"id",
+																			"comment":"R [1..1] ссылка на участника",
+																			"attributes":{
+																				"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.70",
+																				"extension":"*"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		}
+																	]																
+																}
+															]
+														},
+														{
+															"id":"CD-component01-structuredBody-component02-section01-entry02-observation-entryRelationship",
+															"title":"entryRelationship",
+															"comment":"[0..1] Кодирование ... Технологическая подготовка тканевых образцов",
+															"attributes":{
+																"typeCode":"REFR"
+															},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer",
+																	"title":"organizer",
+																	"comment":"",
+																	"attributes":{
+																		"classCode":"CLUSTER",
+																		"moodCode":"EVN"
+																	},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-statusCode",
+																			"title":"statusCode",
+																			"comment":"",
+																			"attributes":{
+																				"code":"completed"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component",
+																			"title":"component",
+																			"comment":"R [1..*] Кодирование ... Технологическая подготовка тканевых образцов. На каждый вид окраски свой отдельный элемент component\\procedure",
+																			"attributes":{
+																				"code":"completed"
+																			},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure",
+																					"title":"procedure",
+																					"comment":"",
+																					"attributes":{
+																						"classCode":"PROC",
+																						"moodCode":"EVN"
+																					},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-code",
+																							"title":"code",
+																							"comment":"",
+																							"attributes":{
+																								"code":"4012",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																								"codeSystemVersion":"1.34",
+																								"codeSystemName":"Кодируемые поля CDA документов",
+																								"displayName":"Технологическая подготовка тканевых образцов"
+																							},
+																							"value":"",
+																							"child":[]																						
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-methodCode",
+																							"title":"methodCode",
+																							"comment":"[1..1] назначенная окраска",
+																							"attributes":{
+																								"code":"*",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.35",
+																								"codeSystemVersion":"2.1",
+																								"codeSystemName":"Виды окрасок, реакций, определений для патолого-анатомических исследований",
+																								"displayName":"*"
+																							},
+																							"value":"",
+																							"child":[]																						
+																						},	
+																						{
+																							"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen",
+																							"title":"specimen",
+																							"comment":"R [1..*] гистологические блоки",
+																							"attributes":{},
+																							"value":"",
+																							"child":[
+																								{
+																									"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen-specimenRole",
+																									"title":"specimenRole",
+																									"comment":"",
+																									"attributes":{},
+																									"value":"",
+																									"child":[
+																										{
+																											"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen-specimenRole-id",
+																											"title":"id",
+																											"comment":"R [1..1] идентификатор гистологического блока",
+																											"attributes":{
+																												"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.91",
+																												"extension":"*"
+																											},
+																											"value":"",
+																											"child":[]																											
+																										},
+																										{
+																											"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity",
+																											"title":"specimenPlayingEntity",
+																											"comment":"",
+																											"attributes":{
+																												"classCode":"ENT",
+																												"determinerCode":"INSTANCE"
+																											},
+																											"value":"",
+																											"child":[
+																												{
+																													"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity-code",
+																													"title":"code",
+																													"comment":"R [1..1] кодирование .. гистологический блок",
+																													"attributes":{
+																														"code":"4015",
+																														"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																														"codeSystemVersion":"1.34",
+																														"codeSystemName":"Кодируемые поля CDA документов",
+																														"displayName":"Гистологический блок"
+																													},
+																													"value":"",
+																													"child":[]																													
+																												},
+																												{
+																													"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity-quantity",
+																													"title":"quantity",
+																													"comment":"R [1..1] кодирование .. количество кусочков в гистологическом блоке",
+																													"attributes":{
+																														"value":"*",
+																														"unit":"*"
+																													},
+																													"value":"",
+																													"child":[]																													
+																												},
+																												{
+																													"id":"CD-component01-structuredBody-component02-section01-entry02-observation-performer-assignedEntity-entryRelationship-organizer-component-procedure-specimen-specimenRole-specimenPlayingEntity-desc",
+																													"title":"desc",
+																													"comment":"R [1..1] описание гистологического блока",
+																													"attributes":{},
+																													"value":"*",
+																													"child":[]																													
+																												}																												
+																											]																												
+																										}
+																									]																				
+																								}
+																							]																						
+																						}																																						
+																					]																				
+																				}
+																			]																	
+																		}																		
+																 	]																
+																}
+															]
+														}																												
+													]
+												}
+											]
+										}										
+									]
+								}
+							]
+						},
+						{
+							"id":"CD-component01-structuredBody-component03",
+							"title":"component",
+							"comment":"R [1..1] СЕКЦИЯ: РЕЗУЛЬТАТЫ ПРИЖИЗНЕННОГО ПАТОЛОГО-АНАТОМИЧЕСКОГО ИССЛЕДОВАНИЯ",
+							"attributes":{},
+							"value":"null",
+							"child":[
+								{
+									"id":"CD-component01-structuredBody-component03-section01",
+									"title":"section",
+									"comment":"",
+									"attributes":{},
+									"value":"null",
+									"child":[
+										{
+											"id":"CD-component01-structuredBody-component03-section01-code",
+											"title":"code",
+											"comment":"R [1..1] код секции",
+											"attributes":{
+												"code":"GISTRESULT",
+												"codeSystem":"1.2.643.5.1.13.13.99.2.197",
+												"codeSystemVersion":"1.9",
+												"codeSystemName":"Секции электронных медицинских документов",
+												"displayName":"Результаты прижизненного патолого-анатомического исследования"
+											},
+											"value":"null",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component03-section01-title",
+											"title":"title",
+											"comment":"R [1..1] заголовок секции",
+											"attributes":{},
+											"value":"РЕЗУЛЬТАТЫ ПРИЖИЗНЕННОГО ПАТОЛОГО-АНАТОМИЧЕСКОГО ИССЛЕДОВАНИЯ",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component03-section01-text",
+											"title":"text",
+											"comment":"R [1..1] наполнение секции",
+											"attributes":{},
+											"value":"*",
+											"child":[]											
+										},
+										{
+											"id":"CD-component01-structuredBody-component03-section01-entry",
+											"title":"entry",
+											"comment":"R [1..1] Кодирование ... Результаты прижизненного патолого-анатомического исследования",
+											"attributes":{},
+											"value":"",
+											"child":[
+												{
+													"id":"CD-component01-structuredBody-component03-section01-entry-observation",
+													"title":"observation",
+													"comment":"",
+													"attributes":{
+														"classCode":"OBS",
+														"moodCode":"EVN"
+													},
+													"value":"",
+													"child":[
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-id",
+															"title":"id",
+															"comment":"R [1..1] идентификатор исследования в информационной системе",
+															"attributes":{
+																"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.90",
+																"extension":"*"
+															},
+															"value":"",
+															"child":[]														
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-code",
+															"title":"code",
+															"comment":"R [1..1] Кодирование ... Результаты прижизненного патолого-анатомического исследования",
+															"attributes":{
+																"code":"4025",
+																"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																"codeSystemVersion":"1.34",
+																"codeSystemName":"Кодируемые поля CDA документов",
+																"displayName":"Результаты прижизненного патолого-анатомического исследования"
+															},
+															"value":"",
+															"child":[]														
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-statusCode",
+															"title":"statusCode",
+															"comment":"",
+															"attributes":{
+																"code":"completed"
+															},
+															"value":"",
+															"child":[]														
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-effectiveTime",
+															"title":"effectiveTime",
+															"comment":"R [1..1] Даты проведения исследования",
+															"attributes":{},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component03-section01-entry-observation-effectiveTime-low",
+																	"title":"low",
+																	"comment":"R [1..1] Дата регистрации материала в ПАО",
+																	"attributes":{
+																		"value":"*"
+																	},
+																	"value":"",
+																	"child":[]																	
+																},
+																{
+																	"id":"CD-component01-structuredBody-component03-section01-entry-observation-effectiveTime-high",
+																	"title":"high",
+																	"comment":"R [1..1] Дата окончания исследования",
+																	"attributes":{
+																		"value":"*"
+																	},
+																	"value":"",
+																	"child":[]																	
+																}
+															]														
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-value",
+															"title":"value",
+															"comment":"R [1..1] Категория сложности",
+															"attributes":{
+																"xsi:type":"CD",
+																"code":"*",
+																"codeSystem":"1.2.643.5.1.13.13.99.2.36",
+																"codeSystemVersion":"1.2",
+																"codeSystemName":"Категории сложности прижизненного патолого-анатомического исследования биопсийного (операционного) материала",
+																"displayName":"*"
+															},
+															"value":"",
+															"child":[]
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-performer",
+															"title":"performer",
+															"comment":"R [1..*] ссылки на участников",
+															"attributes":{},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component03-section01-entry-observation-performer-assignedEntity",
+																	"title":"assignedEntity",
+																	"comment":"",
+																	"attributes":{},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-performer-assignedEntity-id",
+																			"title":"id",
+																			"comment":"R [1..1] ссылка на участника",
+																			"attributes":{
+																				"root":"1.2.643.5.1.13.13.12.2.77.9638.100.1.1.70",
+																				"extension":"*"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		}
+																	]																	
+																}
+															]
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship01",
+															"title":"entryRelationship",
+															"comment":"R [1..1] Микроскопическое описание",
+															"attributes":{
+																"typeCode":"COMP"
+															},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship01-observation",
+																	"title":"observation",
+																	"comment":"R [1..1] Кодирование ... Микроскопическое описание",
+																	"attributes":{
+																		"classCode":"OBS",
+																		"moodCode":"EVN"
+																	},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship01-observation-code",
+																			"title":"code",
+																			"comment":"",
+																			"attributes":{
+																				"code":"4021",
+																				"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																				"codeSystemVersion":"1.34",
+																				"codeSystemName":"Кодируемые поля CDA документов",
+																				"displayName":"Микроскопическое описание"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship01-observation-statusCode",
+																			"title":"statusCode",
+																			"comment":"",
+																			"attributes":{
+																				"code":"completed"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship01-observation-effectiveTime",
+																			"title":"effectiveTime",
+																			"comment":"",
+																			"attributes":{
+																				"value":"*"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship01-observation-value",
+																			"title":"value",
+																			"comment":"",
+																			"attributes":{
+																				"xsi:type":"ST"
+																			},
+																			"value":"*",
+																			"child":[]																	
+																		}
+																	]																	
+																}
+															]
+														},
+														{
+															"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02",
+															"title":"entryRelationship",
+															"comment":"R [1..1] Заключение по прижизненному патолого-анатомическом исследованию",
+															"attributes":{
+																"typeCode":"COMP"
+															},
+															"value":"",
+															"child":[
+																{
+																	"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation",
+																	"title":"observation",
+																	"comment":"R [1..1] Кодирование ... Морфологическое заключение",
+																	"attributes":{
+																		"classCode":"OBS",
+																		"moodCode":"EVN"
+																	},
+																	"value":"",
+																	"child":[
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-code",
+																			"title":"code",
+																			"comment":"",
+																			"attributes":{
+																				"code":"4020",
+																				"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																				"codeSystemVersion":"1.34",
+																				"codeSystemName":"Кодируемые поля CDA документов",
+																				"displayName":"Морфологическое заключение"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-statusCode",
+																			"title":"statusCode",
+																			"comment":"",
+																			"attributes":{
+																				"code":"completed"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-effectiveTime",
+																			"title":"effectiveTime",
+																			"comment":"",
+																			"attributes":{
+																				"value":"*"
+																			},
+																			"value":"",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-value",
+																			"title":"value",
+																			"comment":"",
+																			"attributes":{
+																				"xsi:type":"ST"
+																			},
+																			"value":"*",
+																			"child":[]																	
+																		},
+																		{
+																			"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship",
+																			"title":"entryRelationship",
+																			"comment":"R [1..1] кодирование ... Диагноз по результатам исследования",
+																			"attributes":{
+																				"typeCode":"COMP"
+																			},
+																			"value":"",
+																			"child":[
+																				{
+																					"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship-act",
+																					"title":"act",
+																					"comment":"R [1..1] кодирование ... Диагноз по результатам исследования",
+																					"attributes":{
+																						"classCode":"ACT",
+																						"moodCode":"EVN"
+																					},
+																					"value":"",
+																					"child":[
+																						{
+																							"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship-act-code",
+																							"title":"code",
+																							"comment":"R [1..1] Степень обоснованности диагноза",
+																							"attributes":{
+																								"code":"4027",
+																								"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																								"codeSystemVersion":"1.34",
+																								"codeSystemName":"Кодируемые поля CDA документов",
+																								"displayName":"Диагноз заболевания (состояния) по результатам прижизненного патолого-анатомического исследования"
+																							},
+																							"value":"",
+																							"child":[]																							
+																						},
+																						{
+																							"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship-act-entryRelationship",
+																							"title":"entryRelationship",
+																							"comment":"R [1..*] Кодирование диагноза",
+																							"attributes":{
+																								"typeCode":"COMP"
+																							},
+																							"value":"",
+																							"child":[
+																								{
+																									"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship-act-entryRelationship-observation",
+																									"title":"observation",
+																									"comment":"R [1..*] Кодирование диагноза",
+																									"attributes":{
+																										"classCode":"OBS",
+																										"moodCode":"EVN"
+																									},
+																									"value":"",
+																									"child":[
+																										{
+																											"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship-act-entryRelationship-observation-code",
+																											"title":"code",
+																											"comment":"R [1..1] observation",
+																											"attributes":{
+																												"code":"809",
+																												"codeSystem":"1.2.643.5.1.13.13.99.2.166",
+																												"codeSystemVersion":"1.34",
+																												"codeSystemName":"Кодируемые поля CDA документов",
+																												"displayName":"Шифр по МКБ-10"
+																											},
+																											"value":"",
+																											"child":[]																											
+																										},
+																										{
+																											"id":"CD-component01-structuredBody-component03-section01-entry-observation-entryRelationship02-observation-entryRelationship-act-entryRelationship-observation-value",
+																											"title":"value",
+																											"comment":"R [1..1] Код МКБ-10",
+																											"attributes":{
+																												"xsi:type":"CD",
+																												"code":"*",
+																												"codeSystem":"1.2.643.5.1.13.13.11.1005",
+																												"codeSystemVersion":"2.14",
+																												"codeSystemName":"Международная статистическая классификация болезней и проблем, связанных со здоровьем (10-й пересмотр)",
+																												"displayName":"*"
+																											},
+																											"value":"",
+																											"child":[]																											
+																										}
+																									]																									
+																								}
+																							]																							
+																						}
+																					]
+																				}																				
+																			]																	
+																		}
+																	]
+																}
+															]
+														}																																
+													]
+												}
+											]											
+										}
+									]
+								}
+							]
+						}																	
+					]
+				}
+			]
+		}							
 	]
 }		

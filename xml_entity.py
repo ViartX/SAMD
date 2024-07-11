@@ -5,7 +5,7 @@ from dacite import from_dict
 @dataclass
 class Entity:
     id: str              # уникальный идентификатор тега
-    title: str           # название тега
+    title: str = ""         # название тега
     comment: str = ""    # комментарий, идущий перед тегом
     attributes: dict = field(default=dict)  # аттрибуты тега
     value: str | None = None  # текст тега
@@ -27,6 +27,7 @@ class EntityV:
     id: str              # уникальный идентификатор тега
     attributes: dict = field(default=dict)  # аттрибуты тега
     value: str | None = None  # текст тега
+    repetitions: int = 1
 
 @dataclass
 class ListOfEntityV:
@@ -50,6 +51,7 @@ def read_json_entity_variable(filename: str) -> ListOfEntityV:
     return c1
 
 
-#c1 = read_json_test('variable_short.json')
-c1 = read_json_entity_variable('variable_short.json')
-print(c1)
+#c1 = read_json_test('variable.json')
+#c1 = read_json_entity_variable('variable_short.json')
+
+#print(c1)
