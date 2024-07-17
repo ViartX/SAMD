@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ПРОТОКОЛ_ПРИЖИЗНЕННОГО_ПАТОЛОГОАНАТОМИЧЕСКОГО_ИССЛЕДОВАНИЯ.xsl"?>
 <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fias="urn:hl7-ru:fias" xmlns:identity="urn:hl7-ru:identity" xmlns:address="urn:hl7-ru:address" xmlns:medService="urn:hl7-ru:medService">
 	<!--R [1..1] Область применения документа (Страна)-->
 	<realmCode code="RU" />
